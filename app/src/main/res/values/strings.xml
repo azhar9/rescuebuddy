@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Rescue Buddy</string>
+    <string name="otp">Enter OTP</string>
+    <string name="save">Save</string>
+    <string name="conti">Continue</string>
+
+
+    <!--Registration Activity-->
+    <string name="profile_title"><u>Complete Your Profile</u></string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="address">Address</string>
+    <string name="gender">Gender</string>
+    <string name="age">Age</string>
+    <string name="height">Height( in m )</string>
+    <string name="weight">Weight( in kg )</string>
+    <string name="mobile_no">Mobile Number</string>
 </resources>
