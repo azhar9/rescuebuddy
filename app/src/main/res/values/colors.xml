@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#37474F</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="textLogin">#2B2B2B</color>
+    <color name="btn_color">#576D84</color>
+    <color name="new_btn_color">#1D9A78</color>
+    <color name="backgrnd_color">#f7f7f7</color>
+    <color name="register_text_color">#D4D7E0</color>
 </resources>

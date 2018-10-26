@@ -17,11 +17,21 @@ import android.widget.TextView;
 import com.astudios.rescuebuddy.R;
 import com.onurkaganaldemir.ktoastlib.KToast;
 
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+
 
 public class Essential {
 
 
-    public static final String BASE_URL = "http://35.200.240.176/";
+    public static final String BASE_URL = "https://www.rescuebuddy.co/";
     public static final String REGISTER_URL = BASE_URL + "register";
     public static final String BAG_URL = BASE_URL + "gobag";
     public static final String LOGIN_URL = BASE_URL + "login";
@@ -34,6 +44,8 @@ public class Essential {
     public static final String SOMETHING_OCCURED = "Something Occured!";
 
     public static final String NOT_VALID_NUM = "Not a VALID number!";
+
+    public static final String contactNumberPattern="[0-9]{10}";
 
 
     //toast constants
@@ -52,7 +64,7 @@ public class Essential {
     public static final String MOBILE_KEY = "contact";
     public static final String HEIGHT_KEY = "height";
     public static final String WEIGHT_KEY = "weight";
-    public static final String PASS_KEY = "pass";
+    public static final String PASS_KEY = "password";
     public static final String ID_KEY = "_id";
     //public static final String LOGIN_SAVED = "loginsaved";
 
@@ -138,5 +150,39 @@ public class Essential {
         loader.stop();
         if (dialog.isShowing())
             dialog.cancel();
+    }
+
+    public static class NukeSSLCerts {
+        protected static final String TAG = "NukeSSLCerts";
+
+        public static void nuke() {
+            try {
+                TrustManager[] trustAllCerts = new TrustManager[] {
+                        new X509TrustManager() {
+                            public X509Certificate[] getAcceptedIssuers() {
+                                X509Certificate[] myTrustedAnchors = new X509Certificate[0];
+                                return myTrustedAnchors;
+                            }
+
+                            @Override
+                            public void checkClientTrusted(X509Certificate[] certs, String authType) {}
+
+                            @Override
+                            public void checkServerTrusted(X509Certificate[] certs, String authType) {}
+                        }
+                };
+
+                SSLContext sc = SSLContext.getInstance("SSL");
+                sc.init(null, trustAllCerts, new SecureRandom());
+                HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+                HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
+                    @Override
+                    public boolean verify(String arg0, SSLSession arg1) {
+                        return true;
+                    }
+                });
+            } catch (Exception e) {
+            }
+        }
     }
 }

@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">Rescue Buddy</string>
-    <string name="otp">Enter OTP</string>
     <string name="save">Save</string>
     <string name="conti">Continue</string>
+
+
+    <!--Login Activity-->
+    <string name="mobile_no">Enter your mobile number</string>
+    <string name="login_paswrd">Enter your password</string>
 
 
     <!--Registration Activity-->
@@ -14,5 +18,13 @@
     <string name="age">Age</string>
     <string name="height">Height( in m )</string>
     <string name="weight">Weight( in kg )</string>
-    <string name="mobile_no">Mobile Number</string>
+    <string name="phone_no">Phone Number</string>
+    <string name="register">Register</string>
+    <string name="passwrd">Enter your password</string>
+    <string name="re_passwrd">Reenter your password </string>
+
+
+    <!--otp-->
+    <string name="otp_detail">Please enter OTP which hass been \n sent to your mobile number</string>
+    <string name="otp">Enter OTP</string>
 </resources>
