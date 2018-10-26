@@ -69,6 +69,7 @@ public class Essential {
     //public static final String LOGIN_SAVED = "loginsaved";
 
     public static final String WIFI_NAME = "nasadm_rescue";
+    public static final String PASSWORD_NOMATCH = "Passwords Doesn't Match!";
     public static final String NO_INTERNET = "No Internet!";
     public static final String REQUIRED = "This field is required";
     public static final String FILL_FORM = "Fill the Form";
