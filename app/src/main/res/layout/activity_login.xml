@@ -74,6 +74,21 @@
             android:text="@string/conti"
             android:textColor="@color/colorAccent"
             android:textSize="16sp" />
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:onClick="register"
+            android:layout_marginBottom="120dp"
+            android:alpha=".95"
+            android:background="@drawable/background_login"
+            android:paddingLeft="64dp"
+            android:paddingRight="64dp"
+            android:shadowColor="@color/colorPrimaryDark"
+            android:text="@string/conti"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp" />
+
     </LinearLayout>
 
 

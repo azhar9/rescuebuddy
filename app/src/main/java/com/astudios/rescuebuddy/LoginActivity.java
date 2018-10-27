@@ -1,5 +1,6 @@
 package com.astudios.rescuebuddy;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,12 +31,12 @@ import javax.net.ssl.X509TrustManager;
 import essential.Essential;
 import networkutil.VolleySingleton;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button logIn;
-    private EditText contact,password;
+    private EditText contact, password;
     private Essential essential;
-    private String num,pass;
+    private String num, pass;
     private StringRequest stringRequest;
     private RequestQueue requestQueue;
 
@@ -51,16 +52,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void findIds() {
         essential = new Essential(this);
 
-        logIn=findViewById(R.id.login_continue);
-        contact=findViewById(R.id.login_phone);
-        password=findViewById(R.id.login_password);
+        logIn = findViewById(R.id.login_continue);
+        contact = findViewById(R.id.login_phone);
+        password = findViewById(R.id.login_password);
 
         logIn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.login_continue:
                 logInContinue();
                 break;
@@ -68,20 +69,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void logInContinue() {
-        if(essential.checkInternet()){
-            num=contact.getText().toString().trim();
-            pass=password.getText().toString();
-            if(!num.matches(Essential.contactNumberPattern) || pass.equals("")){
-                if(!num.matches(Essential.contactNumberPattern))
+        if (essential.checkInternet()) {
+            num = contact.getText().toString().trim();
+            pass = password.getText().toString();
+            if (!num.matches(Essential.contactNumberPattern) || pass.equals("")) {
+                if (!num.matches(Essential.contactNumberPattern))
                     contact.setError(Essential.REQUIRED);
-                if(pass.equals(""))
+                if (pass.equals(""))
                     password.setError(Essential.REQUIRED);
-            }
-            else{
+            } else {
                 logInRequest();
             }
-        }
-        else{
+        } else {
             essential.show(Essential.NO_INTERNET, Essential.ERROR);
         }
     }
@@ -90,7 +89,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //show progress
         essential.showDialog();
 
-        stringRequest=new StringRequest(Request.Method.POST, Essential.LOGIN_URL,
+        stringRequest = new StringRequest(Request.Method.POST, Essential.LOGIN_URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -105,10 +104,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         //cancelling the dialog
                         essential.cancelDialog();
                         essential.show(error.toString(), Essential.ERROR);
-                        Log.e("Err",error.toString());
+                        Log.e("Err", error.toString());
                     }
-                }){
-//            @Override
+                }) {
+            //            @Override
 //            public String getBodyContentType() {
 //                return "application/x-www-form-urlencoded; charset=UTF-8";
 //            }
@@ -116,19 +115,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<>();
                 map.put(Essential.MOBILE_KEY, num);
-                map.put(Essential.PASS_KEY,pass);
+                map.put(Essential.PASS_KEY, pass);
                 return map;
             }
 
             @Override
             protected Response<String> parseNetworkResponse(NetworkResponse response) {
-                String token=response.headers.get("x-auth");
-                Log.e("Parse",token);
+                String token = response.headers.get("x-auth");
+                Log.e("Parse", token);
                 return super.parseNetworkResponse(response);
             }
 
         };
         //adding request
         VolleySingleton.getInstance(this).addToRequestQueue(stringRequest);
+    }
+
+    public void register(View view) {
+        startActivity(new Intent(this, RegisterActivity.class));
+        finish();
     }
 }

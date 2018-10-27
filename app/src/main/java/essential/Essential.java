@@ -35,7 +35,7 @@ public class Essential {
     public static final String REGISTER_URL = BASE_URL + "register";
     public static final String BAG_URL = BASE_URL + "gobag";
     public static final String LOGIN_URL = BASE_URL + "login";
-    public static final String LOGOUT_URL = BASE_URL+"logout";
+    public static final String LOGOUT_URL = BASE_URL + "logout";
     public static final String DISASTER_INFO_URL = BASE_URL + "disaster";
 
 
@@ -45,7 +45,7 @@ public class Essential {
 
     public static final String NOT_VALID_NUM = "Not a VALID number!";
 
-    public static final String contactNumberPattern="[0-9]{10}";
+    public static final String contactNumberPattern = "[0-9]{10}";
 
 
     //toast constants
@@ -65,6 +65,9 @@ public class Essential {
     public static final String HEIGHT_KEY = "height";
     public static final String WEIGHT_KEY = "weight";
     public static final String PASS_KEY = "password";
+    public static final String ADDRESS_KEY = "address";
+    public static final String LON_KEY = "lon";
+    public static final String LAT_KEY = "lat";
     public static final String ID_KEY = "_id";
     //public static final String LOGIN_SAVED = "loginsaved";
 
@@ -158,7 +161,7 @@ public class Essential {
 
         public static void nuke() {
             try {
-                TrustManager[] trustAllCerts = new TrustManager[] {
+                TrustManager[] trustAllCerts = new TrustManager[]{
                         new X509TrustManager() {
                             public X509Certificate[] getAcceptedIssuers() {
                                 X509Certificate[] myTrustedAnchors = new X509Certificate[0];
@@ -166,10 +169,12 @@ public class Essential {
                             }
 
                             @Override
-                            public void checkClientTrusted(X509Certificate[] certs, String authType) {}
+                            public void checkClientTrusted(X509Certificate[] certs, String authType) {
+                            }
 
                             @Override
-                            public void checkServerTrusted(X509Certificate[] certs, String authType) {}
+                            public void checkServerTrusted(X509Certificate[] certs, String authType) {
+                            }
                         }
                 };
 
