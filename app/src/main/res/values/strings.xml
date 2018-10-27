@@ -34,4 +34,7 @@
     <!--otp-->
     <string name="otp_detail">Please enter OTP which hass been \n sent to your mobile number</string>
     <string name="otp">Enter OTP</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
