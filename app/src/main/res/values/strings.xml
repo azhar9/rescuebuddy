@@ -7,6 +7,8 @@
     <!--Login Activity-->
     <string name="mobile_no">Enter your mobile number</string>
     <string name="login_paswrd">Enter your password</string>
+    <string name="login_or">OR</string>
+    <string name="login_register">Register Here</string>
 
 
     <!--Registration Activity-->
@@ -23,6 +25,11 @@
     <string name="passwrd">Enter your password</string>
     <string name="re_passwrd">Reenter your password </string>
 
+
+    <!--Go Bag Activity-->
+    <string name="bag_weight">Your Bag Weight</string>
+    <string name="recommended">RECOMMENDED</string>
+    <string name="additional">ADDITIONAL</string>
 
     <!--otp-->
     <string name="otp_detail">Please enter OTP which hass been \n sent to your mobile number</string>

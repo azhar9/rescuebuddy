@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgrnd_color"
-    android:fillViewport="true"
-   >
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,11 +39,11 @@
             android:backgroundTint="@color/btn_color"
             android:hint="@string/mobile_no"
             android:inputType="number"
-            android:textColor="@color/textLogin"
-            android:textCursorDrawable="@null"
             android:maxLength="12"
             android:padding="10dp"
-            />
+            android:textColor="@color/textLogin"
+            android:textCursorDrawable="@null" />
+
         <EditText
             android:id="@+id/login_password"
             android:layout_width="match_parent"
@@ -54,18 +53,18 @@
             android:layout_marginRight="32dp"
             android:backgroundTint="@color/btn_color"
             android:hint="@string/login_paswrd"
-            android:textColor="@color/textLogin"
-            android:textCursorDrawable="@null"
+            android:inputType="textPassword"
             android:maxLength="40"
             android:padding="10dp"
-            />
+            android:textColor="@color/textLogin"
+            android:textCursorDrawable="@null" />
 
         <Button
             android:id="@+id/login_continue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
-            android:layout_marginBottom="120dp"
+            android:layout_marginBottom="10dp"
             android:alpha=".95"
             android:background="@drawable/background_login"
             android:paddingLeft="64dp"
@@ -74,20 +73,24 @@
             android:text="@string/conti"
             android:textColor="@color/colorAccent"
             android:textSize="16sp" />
-        <Button
 
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:onClick="register"
+            android:text="@string/login_or"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            />
+        <TextView
+            android:id="@+id/login_registerHere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_register"
+            android:textSize="16sp"
+            android:textColor="@color/new_btn_color"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="120dp"
-            android:alpha=".95"
-            android:background="@drawable/background_login"
-            android:paddingLeft="64dp"
-            android:paddingRight="64dp"
-            android:shadowColor="@color/colorPrimaryDark"
-            android:text="@string/conti"
-            android:textColor="@color/colorAccent"
-            android:textSize="16sp" />
+            />
 
     </LinearLayout>
 

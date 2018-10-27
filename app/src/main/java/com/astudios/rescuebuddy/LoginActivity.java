@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText contact, password;
     private Essential essential;
     private String num, pass;
+    private TextView register;
     private StringRequest stringRequest;
     private RequestQueue requestQueue;
 
@@ -51,12 +53,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void findIds() {
         essential = new Essential(this);
-
+        register = findViewById(R.id.login_registerHere);
         logIn = findViewById(R.id.login_continue);
         contact = findViewById(R.id.login_phone);
         password = findViewById(R.id.login_password);
 
         logIn.setOnClickListener(this);
+        register.setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +67,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
             case R.id.login_continue:
                 logInContinue();
+                break;
+            case R.id.login_registerHere:
+                register(view);
                 break;
         }
     }
